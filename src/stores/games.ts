@@ -1,8 +1,6 @@
 import { defineStore } from 'pinia';
-
-type RootState = {
-  games: Game[];
-};
+import { useLocalStorage } from '@vueuse/core';
+import { v4 as uuidv4 } from 'uuid';
 
 type Game = {
   id: string;
@@ -25,13 +23,12 @@ type Players = {
   rounds: Rounds[];
 };
 
-export const useCounterStore = defineStore({
+export const useGamesStore = defineStore({
   id: 'games',
 
-  state: () =>
-    ({
-      games: [],
-    } as RootState),
+  state: () => ({
+    games: useLocalStorage<Game[]>('games', []),
+  }),
 
   getters: {
     // doubleCount: state => state.counter * 2,
@@ -39,13 +36,17 @@ export const useCounterStore = defineStore({
 
   actions: {
     createNew(players: Players[]) {
-      this.games.push({
-        id: '',
+      const game = {
+        id: uuidv4(),
         rounds: 0,
         startedAt: new Date(),
         completedAt: null,
         players,
-      });
+      };
+
+      this.games.push(game);
+
+      return game;
     },
   },
 });
