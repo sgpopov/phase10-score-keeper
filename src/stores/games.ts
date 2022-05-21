@@ -31,14 +31,16 @@ export const useGamesStore = defineStore({
   }),
 
   getters: {
-    // doubleCount: state => state.counter * 2,
+    getGameById: state => {
+      return (gameId: string) => state.games.find(game => game.id === gameId);
+    },
   },
 
   actions: {
     createNew(players: Players[]) {
       const game = {
         id: uuidv4(),
-        rounds: 0,
+        rounds: 1,
         startedAt: new Date(),
         completedAt: null,
         players,
