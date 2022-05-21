@@ -1,0 +1,14 @@
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "pugAttributeSeparator": "none",
+  "pugClosingBracketPosition": "new-line",
+  "pugSortAttributes": "asc",
+  "pugEmptyAttributes": "none",
+  "pugClassNotation": "literal",
+  "pugIdNotation": "literal",
+  "pugPrintWidth": 120,
+  "pugArrowParens": "avoid",
+  "pugWrapAttributesThreshold": 1,
+  "arrowParens": "avoid"
+}
