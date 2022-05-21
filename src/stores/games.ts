@@ -1,10 +1,14 @@
 import { defineStore } from 'pinia';
 
+type RootState = {
+  games: Game[];
+};
+
 type Game = {
   id: string;
   rounds: number;
-  startedAt: string;
-  completedAt: string | null;
+  startedAt: Date;
+  completedAt: Date | null;
   players: Players[];
 };
 
@@ -24,20 +28,21 @@ type Players = {
 export const useCounterStore = defineStore({
   id: 'games',
 
-  state: () => ({
-    games: [],
-  }),
+  state: () =>
+    ({
+      games: [],
+    } as RootState),
 
   getters: {
     // doubleCount: state => state.counter * 2,
   },
 
   actions: {
-    createNew(players: Players) {
+    createNew(players: Players[]) {
       this.games.push({
-        id: 123,
+        id: '',
         rounds: 0,
-        startedAt: Date.now(),
+        startedAt: new Date(),
         completedAt: null,
         players,
       });
