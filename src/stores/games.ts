@@ -56,6 +56,16 @@ export const useGamesStore = defineStore({
       return game;
     },
 
+    deleteGame(id: string) {
+      const gameIndex = this.games.findIndex(game => game.id === id);
+
+      if (gameIndex < 0) {
+        throw Error('Game not found');
+      }
+
+      this.games.splice(gameIndex, 1);
+    },
+
     addRound(gameId: string, scores: PlayerScore[]) {
       const game = this.games.find(game => game.id === gameId);
 
