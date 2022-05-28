@@ -110,7 +110,14 @@ const cancel = () => {
 
         <div class="w-2/6 text-lg sm:text-xl font-bold text-right">
           <div class="px-2">
-            <TextField type="number" v-model="player.score" min="5" :step="5" />
+            <TextField
+              type="number"
+              v-model="player.score"
+              min="5"
+              :step="5"
+              inputmode="numeric"
+              pattern="[0-9]*"
+            />
           </div>
         </div>
       </div>
