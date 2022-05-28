@@ -7,7 +7,7 @@ import { RouterLink } from 'vue-router';
     class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10"
   >
     <div class="flex justify-start lg:w-0 lg:flex-1">
-      <router-link to="/">
+      <router-link :to="{ name: 'games' }">
         <span class="sr-only">Phase 10</span>
         <img class="h-10 w-auto sm:h-10" src="@/assets/logo.jpeg" alt="" />
       </router-link>
