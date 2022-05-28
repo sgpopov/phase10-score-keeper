@@ -7,14 +7,10 @@ import { RouterLink } from 'vue-router';
     class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10"
   >
     <div class="flex justify-start lg:w-0 lg:flex-1">
-      <a href="/">
-        <span class="sr-only">Workflow</span>
-        <img
-          class="h-10 w-auto sm:h-10"
-          src="https://pbs.twimg.com/profile_images/1348824723585708032/splbP9wU_400x400.jpg"
-          alt=""
-        />
-      </a>
+      <router-link to="/">
+        <span class="sr-only">Phase 10</span>
+        <img class="h-10 w-auto sm:h-10" src="@/assets/logo.jpeg" alt="" />
+      </router-link>
     </div>
 
     <div class="md:flex items-center justify-end md:flex-1 lg:w-0">
