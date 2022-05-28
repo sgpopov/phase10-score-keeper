@@ -6,8 +6,8 @@ import { v4 as uuidv4 } from 'uuid';
 export type Game = {
   id: string;
   rounds: number;
-  startedAt: Date;
-  completedAt: Date | null;
+  startedAt: string;
+  completedAt: string | null;
   players: Players[];
 };
 
@@ -32,6 +32,10 @@ export const useGamesStore = defineStore({
   }),
 
   getters: {
+    getAll: state => {
+      return state.games;
+    },
+
     getGameById: state => {
       return (gameId: string) => state.games.find(game => game.id === gameId);
     },
@@ -42,7 +46,7 @@ export const useGamesStore = defineStore({
       const game = {
         id: uuidv4(),
         rounds: 1,
-        startedAt: new Date(),
+        startedAt: new Date().toISOString(),
         completedAt: null,
         players,
       };
